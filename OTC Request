@@ -1,0 +1,9 @@
+create table otc_requests (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references users(id),
+  type text, -- buy / sell
+  amount_btc numeric,
+  amount_idr numeric,
+  status text, -- pending / completed
+  created_at timestamp default now()
+);
