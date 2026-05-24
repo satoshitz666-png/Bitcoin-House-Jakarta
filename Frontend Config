@@ -1,0 +1,56 @@
+{
+  "site": {
+    "name": "Bitcoin House Jakarta",
+    "tagline": {
+      "id": "Pusat edukasi, komunitas, dan treasury Bitcoin di Indonesia",
+      "en": "Bitcoin education, community, and treasury hub in Indonesia"
+    }
+  },
+  "menu": [
+    { "key": "home", "id": "Beranda", "en": "Home" },
+    { "key": "about", "id": "Tentang", "en": "About" },
+    { "key": "services", "id": "Layanan", "en": "Services" },
+    { "key": "events", "id": "Event", "en": "Events" },
+    { "key": "membership", "id": "Membership", "en": "Membership" }
+  ],
+  "hero": {
+    "title": {
+      "id": "Welcome to Bitcoin House Jakarta",
+      "en": "Welcome to Bitcoin House Jakarta"
+    },
+    "cta": {
+      "id": "Gabung Sekarang",
+      "en": "Join Now"
+    }
+  },
+  "services": [
+    {
+      "icon": "education",
+      "title": {
+        "id": "Edukasi Bitcoin",
+        "en": "Bitcoin Education"
+      }
+    },
+    {
+      "icon": "community",
+      "title": {
+        "id": "Komunitas",
+        "en": "Community"
+      }
+    },
+    {
+      "icon": "otc",
+      "title": {
+        "id": "OTC Desk",
+        "en": "OTC Desk"
+      }
+    },
+    {
+      "icon": "treasury",
+      "title": {
+        "id": "Bitcoin Treasury",
+        "en": "Bitcoin Treasury"
+      }
+    }
+  ]
+}
