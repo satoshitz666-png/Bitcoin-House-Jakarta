@@ -1,0 +1,8 @@
+create table memberships (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references users(id),
+  type text, -- basic / premium / vip
+  status text, -- active / expired
+  start_date date,
+  end_date date
+);
