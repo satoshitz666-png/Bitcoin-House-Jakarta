@@ -1,0 +1,6 @@
+create table treasury (
+  id uuid primary key default uuid_generate_v4(),
+  total_btc numeric,
+  avg_buy_price numeric,
+  updated_at timestamp default now()
+);
