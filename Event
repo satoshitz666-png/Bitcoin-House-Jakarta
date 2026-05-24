@@ -1,0 +1,9 @@
+create table events (
+  id uuid primary key default uuid_generate_v4(),
+  title text,
+  description text,
+  date timestamp,
+  location text,
+  price numeric,
+  created_at timestamp default now()
+);
