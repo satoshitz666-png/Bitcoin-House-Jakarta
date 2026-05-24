@@ -1,0 +1,168 @@
+// BITCOIN HOUSE JAKARTA - PRO VERSION (Next.js + Tailwind + Supabase Ready)
+
+// Folder Structure:
+// /app
+//   /page.tsx
+//   /about/page.tsx
+//   /program/page.tsx
+//   /event/page.tsx
+//   /otc/page.tsx
+//   /contact/page.tsx
+// /components
+//   Navbar.tsx
+//   Footer.tsx
+//   LanguageToggle.tsx
+//   Hero.tsx
+//   Sections.tsx
+// /lib
+//   i18n.ts
+
+// =========================
+// lib/i18n.ts
+// =========================
+export const content = {
+  id: {
+    nav: ["Beranda", "Tentang", "Program", "Event", "OTC", "Kontak"],
+    hero: {
+      title: "Bitcoin House Jakarta",
+      subtitle: "Orange Pilled Space untuk Edukasi & Kedaulatan Finansial",
+      desc: "Bukan tentang trading. Ini tentang sound money dan masa depan.",
+      cta: "Gabung Sekarang",
+    },
+  },
+  en: {
+    nav: ["Home", "About", "Program", "Event", "OTC", "Contact"],
+    hero: {
+      title: "Bitcoin House Jakarta",
+      subtitle: "Orange Pilled Space for Financial Sovereignty",
+      desc: "Not about trading. It's about sound money and the future.",
+      cta: "Join Now",
+    },
+  },
+};
+
+// =========================
+// components/Navbar.tsx
+// =========================
+import Link from "next/link";
+
+export default function Navbar({ lang, setLang }: any) {
+  return (
+    <nav className="flex justify-between p-6 border-b border-gray-800">
+      <h1 className="text-orange-500 font-bold">₿ Bitcoin House</h1>
+      <div className="flex gap-6">
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/program">Program</Link>
+        <Link href="/event">Event</Link>
+        <Link href="/otc">OTC</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
+      <div className="flex gap-2">
+        <button onClick={() => setLang("id")}>ID</button>
+        <button onClick={() => setLang("en")}>EN</button>
+      </div>
+    </nav>
+  );
+}
+
+// =========================
+// app/page.tsx (Homepage)
+// =========================
+"use client";
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import { content } from "../lib/i18n";
+
+export default function Home() {
+  const [lang, setLang] = useState("id");
+  const t = content[lang];
+
+  return (
+    <main className="bg-black text-white min-h-screen">
+      <Navbar lang={lang} setLang={setLang} />
+
+      <section className="text-center py-24">
+        <h1 className="text-5xl text-orange-500 font-bold">{t.hero.title}</h1>
+        <p className="mt-4 text-xl">{t.hero.subtitle}</p>
+        <p className="mt-6 text-gray-400">{t.hero.desc}</p>
+        <button className="mt-8 px-6 py-3 bg-orange-500 text-black rounded-xl">
+          {t.hero.cta}
+        </button>
+      </section>
+
+      <section className="grid md:grid-cols-3 gap-6 p-10">
+        <div className="border p-6">Orange Pill Lounge</div>
+        <div className="border p-6">Bitcoin Library</div>
+        <div className="border p-6">Mining Lab</div>
+      </section>
+
+      <footer className="text-center py-10 border-t border-gray-800">
+        Sound Money. Timeless Value.
+      </footer>
+    </main>
+  );
+}
+
+// =========================
+// app/otc/page.tsx
+// =========================
+export default function OTC() {
+  return (
+    <div className="p-10 text-white bg-black min-h-screen">
+      <h1 className="text-3xl text-orange-500">Bitcoin OTC & Treasury</h1>
+      <p className="mt-4 text-gray-400">
+        Layanan pembelian Bitcoin skala besar untuk individu & institusi.
+      </p>
+    </div>
+  );
+}
+
+// =========================
+// app/event/page.tsx
+// =========================
+export default function Event() {
+  return (
+    <div className="p-10 text-white bg-black min-h-screen">
+      <h1 className="text-3xl text-orange-500">Event & Meetup</h1>
+      <p className="mt-4 text-gray-400">
+        Jadwal meetup, workshop, dan edukasi Bitcoin.
+      </p>
+    </div>
+  );
+}
+
+// =========================
+// Supabase Integration (optional)
+// =========================
+// install: npm install @supabase/supabase-js
+// create /lib/supabase.ts
+
+import { createClient } from '@supabase/supabase-js';
+
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+// Example: save user
+export async function addUser(email: string) {
+  return await supabase.from('users').insert([{ email }]);
+}
+
+// =========================
+// DEPLOY
+// =========================
+// 1. npx create-next-app
+// 2. copy code
+// 3. npm run dev
+// 4. deploy to vercel
+
+// =========================
+// NEXT UPGRADE IDEAS
+// =========================
+// - Framer Motion animation
+// - 3D Bitcoin House virtual tour
+// - Member dashboard
+// - Event booking system
+// - Payment Lightning integration
