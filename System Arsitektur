@@ -1,0 +1,17 @@
+Frontend (Next.js)
+│
+├── Landing Page (Marketing)
+├── Dashboard Member (Auth)
+│
+Backend (Supabase)
+│
+├── Auth (User / Member)
+├── Database (PostgreSQL)
+├── Storage (Media / Event / NFT Pass)
+│
+API Layer
+│
+├── Membership
+├── Event Booking
+├── OTC Request
+├── Treasury Dashboard
